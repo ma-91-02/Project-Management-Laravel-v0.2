@@ -10,11 +10,10 @@
         </div>
     </header>
 
-    <section dir="rtl" class="text-right">
-        <div class="row">
+    <section class="row text-right" dir="rtl">
             @forelse($projects as $project)
-                <div class="col-4 mb-4">
-                    <div class="card text-right">
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card card-height">
                         <div class="card-body">
                             <div class="status">
                                 @switch($project->status)
@@ -42,9 +41,9 @@
                     </div>
                 </div>
                 @empty
-                    <div class="m-auto alighn-content-center text-center">
+                    <div class="m-auto align-content-center">
                         <p>لوحة العمل خالية من المشاريع</p>
-                        <div class="mt-5">
+                        <div class="text-center mt-5">
                             <a href="/projects/create" class="bt btn-primary btn-lg d-inline-flex align-items-center"
                                 role="button">انشئ مشروعا جديدا الان </a>
                         </div>

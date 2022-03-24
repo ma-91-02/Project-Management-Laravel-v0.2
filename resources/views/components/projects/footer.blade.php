@@ -1,5 +1,5 @@
-<div class="card-footer bg-transparent" dir="rtl">
-    <div class="d-flex">
+<div class="card-footer border-0 bg-transparent" dir="rtl">
+    <div class="d-flex text-sm">
         <div class="d-flex align-items-center" >
             <img src="/img/clock.svg" alt="" >
             <div class="mr-2">
@@ -13,11 +13,11 @@
             </div>
         </div>
 
-        <div class="d-flex align-items-center flex-row-reverse mr-auto" >
+        <div class="d-flex align-items-center mr-auto" >
             <form action="/projects/{{$project->id}}" method="POST" >
             @method('DELETE')
             @csrf
-            <input type="submit" class="btn btn-delete" value="" >
+            <input type="submit" class="btn btn-delete mt-2" value="" >
             </form>
         </div>
     </div>
