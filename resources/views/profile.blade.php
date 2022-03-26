@@ -1,9 +1,9 @@
 <x-header />
 @section('title', 'الملف الشخصي')
 
-<div class="row justify-content-center text-right">
+<div class="row justify-content-center " dir="rtl">
     <div class="col-md-6">
-        <div class="card p-3 p-md-3 p-lg-5 mt-5">
+        <div class="card p-5 p-md-3 p-lg-5 mt-5">
             <div class="text-center">
                 <img width="82px" height="82px" src="{{ asset('storage/' . auth()->user()->image) }}">
                 <h3 class="mt-4 font-weight-bold">{{ auth()->user()->name }}</h3>
@@ -64,7 +64,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group d-flex mt-5">
+                    <div class="form-group d-flex mt-5 flex-row-reverse">
                         <button type="submit" class="btn btn-primary mr-2">
                             {{ __('حفظ التعديلات') }}
                         </button>

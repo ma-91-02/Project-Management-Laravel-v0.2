@@ -1,4 +1,3 @@
-{{-- @extends('components.layouts.app') --}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl">
 
@@ -20,30 +19,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .btn-delete {
-            background: url("/img/trash.svg");
-            background-repeat: no-repeat;
-            background-size: 1.1rem 1.1rem;
-            padding-bottom: 0px;
-            padding-top: 0px;
-            padding-left: 0px;
-            border: 0px;
-            outline: none;
-        }
-
-        .checked {
-            text-decoration: line-through;
-        }
-
-    </style>
 </head>
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-primary bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm" >
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand mr-0" href="{{ url('/') }}">
                     ادارة المشاريع
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -52,14 +34,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-
-                    </ul>
+                <div class="collapse navbar-collapse mr-auto" id="navbarSupportedContent">
 
                     <!--  Left Side Of Navbar -->
-                    <ul class="nav justify-content-end">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @auth
                             <li class="nav-item">
@@ -81,13 +59,14 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="nav-item dropdown">
+                                <li class="nav-item dropdown dropdown-menu-right">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }}
+                                        <img class="user-image" src="{{asset('/storage/' . auth()->user()->image)}}" >
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="/profile">
                                             {{ __('الملف الشخصي') }}
                                         </a>

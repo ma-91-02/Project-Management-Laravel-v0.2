@@ -1,0 +1,36 @@
+.user-image{
+    width: 2em;
+    height: 2em;
+}
+.dropdown-toggle::after{
+    content: none;
+}
+
+.card {
+    box-shadow: 1px,1px,2px,rgba($color: #000000, $alpha: 0.88);
+}
+
+.status{
+    margin-bottom: 10px;
+    font-size: $small-font-size;
+}
+.card-text{
+    font-family:  'Noto Kufi Arabic', sans-serif;
+}
+.checked {
+    text-decoration: line-through;
+}
+.btn-delete {
+    background: url("/images/trash.svg");
+    background-repeat: no-repeat;
+    background-size: 1.1rem 1.1rem;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 8px;
+    border: 0px;
+    outline: none;
+    color: red;
+
+}
+
+

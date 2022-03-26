@@ -10,10 +10,10 @@
         </div>
     </header>
 
-    <section class="row text-right" dir="rtl">
+    <section  class="row" dir="rtl">
         <div class="col-lg-4">
             {{-- Project Details --}}
-            <div class="card text-right">
+            <div class="card mb-4">
                 <div class="card-body">
                     <div class="status">
                         @switch($project->status)
@@ -39,8 +39,9 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
+            <div class="card mt-4">
                 <div class="card-body">
+                    <h5 class="font-weight-bold">تغير حالة المشروع</h5>
                     <form action="/projects/{{ $project->id }}" method="post">
                         @csrf
                         @method('PATCH')
@@ -53,44 +54,40 @@
                 </div>
             </div>
         </div>
+        {{-- Tasks --}}
         <div class="col-lg-8">
-            {{-- Tasks --}}
             @foreach ($project->tasks as $task)
-                <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <div class="{{ $task->done ? 'checked muted' : '' }}">
-                            {{ $task->body }}
-                        </div>
-                        <span class="badge badge-primary badge-pill">
-                            <div class="mr-auto">
-                                <form action="/projects/{{ $project->id }}/tasks/{{ $task->id }}" method="post"
-                                    class="form-check">
-                                    @csrf
-                                    @method("PATCH")
-                                    <input type="checkbox" name="done" class="form-check-input ml-4"
-                                        {{ $task->done ? 'checked' : '' }} onchange="this.form.submit()">
-                                </form>
-                            </div>
-                            <div class="d-flex align-items-center" >
-                                <form action="/projects/{{$task->project_id}}/tasks/{{$task->id}}" method="POST" >
-                                @method('DELETE')
-                                @csrf
-                                <input type="submit" class="btn btn-delete" value="" >
-                                </form>
-                            </div>
-                        </span>
-                    </li>
-                </ul>
-            @endforeach
-            <ul class="list-group">
-                <div class="card">
-                    <form action="/projects/{{ $project->id }}/tasks" method="post" class="d-flex">
-                        @csrf
-                        <input type="text" name="body" placeholder="اضف مهمة جديدة" class="form-control p-2 ml-2">
-                        <button type="submit" class="btn btn-primary">اضافة</button>
-                    </form>
+            <div class="card p-3 mb-3 d-flex flex-row align-items-center">
+                <div class="{{ $task->done ? 'checked text-muted' : '' }}">
+                    {{  $task->body }}
                 </div>
-            </ul>
+                <div class="d-flex ml-auto ">
+                    <form action="/projects/{{ $task->project->id }}/tasks/{{ $task->id }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <input type="checkbox" name="done" onchange="this.form.submit()"  class="form-check-input"
+                            {{ $task->done ? 'checked' : '' }}>
+                    </form>
+
+                    <div class="d-flex align-items-center ">
+                        <form method="POST" action="/projects/{{ $task->project->id }}/tasks/{{ $task->id }}"
+                            class="hide-submit">
+                            @csrf
+                            @method("DELETE")
+                            <input type="submit" class="btn btn-delete mt-1" value="">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <div class="card">
+                <form method="POST" action="/projects/{{ $project->id }}/tasks" class="p-3 d-flex">
+                    @csrf
+                    <input type="text" name="body" class="form-control p-2 ml-2" placeholder="أضف مهمة جديدة">
+                    <button type="submit" class="btn btn-primary">أضف</button>
+                </form>
+
+            </div>
 
         </div>
     </section>

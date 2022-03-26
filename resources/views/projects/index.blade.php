@@ -10,11 +10,11 @@
         </div>
     </header>
 
-    <section class="row text-right" dir="rtl">
+    <section class="row " dir="rtl">
             @forelse($projects as $project)
                 <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card card-height">
-                        <div class="card-body">
+                    <div class="card card-height" style="height: 230px">
+                        <div class="card-body " >
                             <div class="status">
                                 @switch($project->status)
                                     @case(1)
@@ -35,9 +35,10 @@
                                 <div class="card-text mt-4">
                                     {{ Str::limit($project->description, 150) }}
                                 </div>
-                                @include('components.projects.footer')
+
                             </div>
                         </div>
+                        @include('components.projects.footer')
                     </div>
                 </div>
                 @empty
