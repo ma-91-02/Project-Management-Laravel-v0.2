@@ -1,4 +1,4 @@
-<h1 dir="rtl"> مسار أساسيات Laravel </h1>
+<h1 dir="rtl"> Project Management  </h1>
 
 
 <h2 dir="rtl"> خطوات تثبيت المشروع: </h2>
